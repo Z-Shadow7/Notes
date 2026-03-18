@@ -13,7 +13,7 @@ Like a **white tiger in the wild**, this repo is:
 - 🐅 Powerful underneath  
 - 🌌 Always evolving  
 
-![ ](../junk/tiger.jpg)
+![ ](junk/tiger.jpg)
 
 ---
 
