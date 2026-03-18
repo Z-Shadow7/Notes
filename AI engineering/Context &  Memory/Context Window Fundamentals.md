@@ -13,7 +13,7 @@ Whatever falls outside it, the model simply cannot see. It's not forgotten — i
 
 Think of it like a desk. You can only work with what's physically on the desk right now. Older papers that slid off the edge are gone from your view — even if they're still in the room somewhere.
 
-![Context Window Diagram](../img/context_window_fundamentals.svg)
+![Context Window Diagram](./img/context_window_fundamentals.svg)
 
 ---
 
