@@ -10,6 +10,8 @@
 A prompt is the input you send to an LLM. It's not just a question — it has **structure**. Understanding that structure is what separates random results from reliable, production-ready outputs.
 
 ---
+![Prompt Anatomy](./img/prompt_anatomy.svg)
+---
 
 ## The 4 Parts of a Prompt
 
