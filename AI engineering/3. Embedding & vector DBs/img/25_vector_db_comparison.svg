@@ -1,0 +1,72 @@
+<svg width="100%" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+
+<rect x="40" y="20" width="140" height="44" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="110" y="46" text-anchor="middle" fill="#2C2C2A">Feature</text>
+
+<rect x="190" y="20" width="110" height="44" rx="8" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="245" y="46" text-anchor="middle" fill="#085041">Pinecone</text>
+
+<rect x="310" y="20" width="110" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="365" y="46" text-anchor="middle" fill="#26215C">ChromaDB</text>
+
+<rect x="430" y="20" width="100" height="44" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="480" y="46" text-anchor="middle" fill="#4A1B0C">Weaviate</text>
+
+<rect x="540" y="20" width="100" height="44" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="590" y="46" text-anchor="middle" fill="#412402">Qdrant</text>
+
+<line x1="40" y1="64" x2="640" y2="64" stroke="#D3D1C7" stroke-width="0.5"/>
+
+<rect x="40" y="72" width="140" height="36" rx="4" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="12" x="110" y="94" text-anchor="middle" fill="#5F5E5A">Hosting</text>
+<text font-family="sans-serif" font-size="12" x="245" y="94" text-anchor="middle" fill="#5F5E5A">Managed cloud</text>
+<text font-family="sans-serif" font-size="12" x="365" y="94" text-anchor="middle" fill="#5F5E5A">Local / self</text>
+<text font-family="sans-serif" font-size="12" x="480" y="94" text-anchor="middle" fill="#5F5E5A">Both</text>
+<text font-family="sans-serif" font-size="12" x="590" y="94" text-anchor="middle" fill="#5F5E5A">Both</text>
+
+<rect x="40" y="116" width="140" height="36" rx="4" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="12" x="110" y="138" text-anchor="middle" fill="#5F5E5A">Setup effort</text>
+<text font-family="sans-serif" font-size="12" x="245" y="138" text-anchor="middle" fill="#5F5E5A">Minimal</text>
+<text font-family="sans-serif" font-size="12" x="365" y="138" text-anchor="middle" fill="#5F5E5A">Minimal</text>
+<text font-family="sans-serif" font-size="12" x="480" y="138" text-anchor="middle" fill="#5F5E5A">Moderate</text>
+<text font-family="sans-serif" font-size="12" x="590" y="138" text-anchor="middle" fill="#5F5E5A">Low–moderate</text>
+
+<rect x="40" y="160" width="140" height="36" rx="4" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="12" x="110" y="182" text-anchor="middle" fill="#5F5E5A">Scale</text>
+<text font-family="sans-serif" font-size="12" x="245" y="182" text-anchor="middle" fill="#5F5E5A">Billions</text>
+<text font-family="sans-serif" font-size="12" x="365" y="182" text-anchor="middle" fill="#5F5E5A">Millions</text>
+<text font-family="sans-serif" font-size="12" x="480" y="182" text-anchor="middle" fill="#5F5E5A">Billions</text>
+<text font-family="sans-serif" font-size="12" x="590" y="182" text-anchor="middle" fill="#5F5E5A">Billions</text>
+
+<rect x="40" y="204" width="140" height="36" rx="4" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="12" x="110" y="226" text-anchor="middle" fill="#5F5E5A">Hybrid search</text>
+<text font-family="sans-serif" font-size="12" x="245" y="226" text-anchor="middle" fill="#5F5E5A">No</text>
+<text font-family="sans-serif" font-size="12" x="365" y="226" text-anchor="middle" fill="#5F5E5A">No</text>
+<text font-family="sans-serif" font-size="12" x="480" y="226" text-anchor="middle" fill="#5F5E5A">Yes (BM25)</text>
+<text font-family="sans-serif" font-size="12" x="590" y="226" text-anchor="middle" fill="#5F5E5A">Yes</text>
+
+<rect x="40" y="248" width="140" height="36" rx="4" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="12" x="110" y="270" text-anchor="middle" fill="#5F5E5A">Filter power</text>
+<text font-family="sans-serif" font-size="12" x="245" y="270" text-anchor="middle" fill="#5F5E5A">Good</text>
+<text font-family="sans-serif" font-size="12" x="365" y="270" text-anchor="middle" fill="#5F5E5A">Basic</text>
+<text font-family="sans-serif" font-size="12" x="480" y="270" text-anchor="middle" fill="#5F5E5A">Good</text>
+<text font-family="sans-serif" font-size="12" x="590" y="270" text-anchor="middle" fill="#5F5E5A">Excellent</text>
+
+<rect x="40" y="292" width="140" height="36" rx="4" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="12" x="110" y="314" text-anchor="middle" fill="#5F5E5A">Speed</text>
+<text font-family="sans-serif" font-size="12" x="245" y="314" text-anchor="middle" fill="#5F5E5A">Fast</text>
+<text font-family="sans-serif" font-size="12" x="365" y="314" text-anchor="middle" fill="#5F5E5A">Fast</text>
+<text font-family="sans-serif" font-size="12" x="480" y="314" text-anchor="middle" fill="#5F5E5A">Fast</text>
+<text font-family="sans-serif" font-size="12" x="590" y="314" text-anchor="middle" fill="#5F5E5A">Fastest (Rust)</text>
+
+<rect x="40" y="336" width="140" height="44" rx="4" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="12" x="110" y="362" text-anchor="middle" fill="#5F5E5A">Best for</text>
+<text font-family="sans-serif" font-size="12" x="245" y="350" text-anchor="middle" fill="#5F5E5A">Managed prod</text>
+<text font-family="sans-serif" font-size="12" x="245" y="366" text-anchor="middle" fill="#5F5E5A">RAG</text>
+<text font-family="sans-serif" font-size="12" x="365" y="350" text-anchor="middle" fill="#5F5E5A">Local dev /</text>
+<text font-family="sans-serif" font-size="12" x="365" y="366" text-anchor="middle" fill="#5F5E5A">prototypes</text>
+<text font-family="sans-serif" font-size="12" x="480" y="350" text-anchor="middle" fill="#5F5E5A">Hybrid</text>
+<text font-family="sans-serif" font-size="12" x="480" y="366" text-anchor="middle" fill="#5F5E5A">search apps</text>
+<text font-family="sans-serif" font-size="12" x="590" y="350" text-anchor="middle" fill="#5F5E5A">High-perf</text>
+<text font-family="sans-serif" font-size="12" x="590" y="366" text-anchor="middle" fill="#5F5E5A">filtering</text>
+</svg>

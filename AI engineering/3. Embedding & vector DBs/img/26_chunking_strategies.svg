@@ -1,0 +1,75 @@
+<svg width="100%" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg">
+
+<text font-family="sans-serif" font-size="14" font-weight="500" x="40" y="28" fill="#2C2C2A">Four chunking strategies</text>
+
+<text font-family="sans-serif" font-size="12" x="40" y="56" fill="#5F5E5A">1. Fixed-size (naive)</text>
+<rect x="40"  y="64" width="72" height="28" rx="4" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<rect x="118" y="64" width="72" height="28" rx="4" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<rect x="196" y="64" width="72" height="28" rx="4" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<rect x="274" y="64" width="72" height="28" rx="4" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<rect x="352" y="64" width="72" height="28" rx="4" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="12" x="76"  y="82" text-anchor="middle" fill="#5F5E5A">chunk 1</text>
+<text font-family="sans-serif" font-size="12" x="154" y="82" text-anchor="middle" fill="#5F5E5A">chunk 2</text>
+<text font-family="sans-serif" font-size="12" x="232" y="82" text-anchor="middle" fill="#5F5E5A">chunk 3</text>
+<text font-family="sans-serif" font-size="12" x="310" y="82" text-anchor="middle" fill="#5F5E5A">chunk 4</text>
+<text font-family="sans-serif" font-size="12" x="388" y="82" text-anchor="middle" fill="#5F5E5A">chunk 5</text>
+<text font-family="sans-serif" font-size="12" x="460" y="82" fill="#888780">simple, ignores meaning</text>
+
+<text font-family="sans-serif" font-size="12" x="40" y="122" fill="#5F5E5A">2. Fixed-size with overlap</text>
+<rect x="40"  y="130" width="88" height="28" rx="4" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<rect x="108" y="130" width="88" height="28" rx="4" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<rect x="176" y="130" width="88" height="28" rx="4" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<rect x="244" y="130" width="88" height="28" rx="4" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="12" x="84"  y="148" text-anchor="middle" fill="#26215C">chunk 1</text>
+<text font-family="sans-serif" font-size="12" x="152" y="148" text-anchor="middle" fill="#26215C">chunk 2</text>
+<text font-family="sans-serif" font-size="12" x="220" y="148" text-anchor="middle" fill="#26215C">chunk 3</text>
+<text font-family="sans-serif" font-size="12" x="288" y="148" text-anchor="middle" fill="#26215C">chunk 4</text>
+<text font-family="sans-serif" font-size="12" x="460" y="140" fill="#888780">overlap preserves context</text>
+<text font-family="sans-serif" font-size="12" x="460" y="156" fill="#888780">across boundaries</text>
+
+<text font-family="sans-serif" font-size="12" x="40" y="192" fill="#5F5E5A">3. Sentence / paragraph splitting</text>
+<rect x="40"  y="200" width="110" height="28" rx="4" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+<rect x="160" y="200" width="70"  height="28" rx="4" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+<rect x="240" y="200" width="130" height="28" rx="4" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+<rect x="380" y="200" width="60"  height="28" rx="4" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="12" x="95"  y="218" text-anchor="middle" fill="#085041">sentence 1</text>
+<text font-family="sans-serif" font-size="12" x="195" y="218" text-anchor="middle" fill="#085041">sent 2</text>
+<text font-family="sans-serif" font-size="12" x="305" y="218" text-anchor="middle" fill="#085041">sentence 3</text>
+<text font-family="sans-serif" font-size="12" x="410" y="218" text-anchor="middle" fill="#085041">s 4</text>
+<text font-family="sans-serif" font-size="12" x="460" y="210" fill="#888780">respects natural</text>
+<text font-family="sans-serif" font-size="12" x="460" y="226" fill="#888780">language boundaries</text>
+
+<text font-family="sans-serif" font-size="12" x="40" y="262" fill="#5F5E5A">4. Recursive / semantic splitting</text>
+<rect x="40"  y="270" width="160" height="28" rx="4" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<rect x="210" y="270" width="190" height="28" rx="4" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<rect x="410" y="270" width="100" height="28" rx="4" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="12" x="120" y="288" text-anchor="middle" fill="#4A1B0C">topic A content</text>
+<text font-family="sans-serif" font-size="12" x="305" y="288" text-anchor="middle" fill="#4A1B0C">topic B content</text>
+<text font-family="sans-serif" font-size="12" x="460" y="288" text-anchor="middle" fill="#4A1B0C">topic C</text>
+<text font-family="sans-serif" font-size="12" x="530" y="280" fill="#888780">splits on meaning shift</text>
+<text font-family="sans-serif" font-size="12" x="530" y="296" fill="#888780">not character count</text>
+
+<line x1="40" y1="320" x2="640" y2="320" stroke="#D3D1C7" stroke-width="0.5" stroke-dasharray="3 3"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="40" y="346" fill="#2C2C2A">Chunk size vs quality tradeoff</text>
+
+<rect x="40"  y="358" width="116" height="44" rx="6" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="98" y="374" text-anchor="middle" fill="#412402">Too small</text>
+<text font-family="sans-serif" font-size="12" x="98" y="392" text-anchor="middle" fill="#633806">&lt;100 tokens</text>
+
+<rect x="166" y="358" width="116" height="44" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="224" y="374" text-anchor="middle" fill="#085041">Sweet spot</text>
+<text font-family="sans-serif" font-size="12" x="224" y="392" text-anchor="middle" fill="#0F6E56">200–500 tokens</text>
+
+<rect x="292" y="358" width="116" height="44" rx="6" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="350" y="374" text-anchor="middle" fill="#412402">Too large</text>
+<text font-family="sans-serif" font-size="12" x="350" y="392" text-anchor="middle" fill="#633806">&gt;1000 tokens</text>
+
+<text font-family="sans-serif" font-size="12" x="98"  y="420" text-anchor="middle" fill="#5F5E5A">loses context</text>
+<text font-family="sans-serif" font-size="12" x="224" y="420" text-anchor="middle" fill="#5F5E5A">best recall</text>
+<text font-family="sans-serif" font-size="12" x="350" y="420" text-anchor="middle" fill="#5F5E5A">noisy embedding</text>
+
+<text font-family="sans-serif" font-size="12" x="460" y="375" fill="#5F5E5A">overlap rule of thumb:</text>
+<text font-family="sans-serif" font-size="12" x="460" y="391" fill="#5F5E5A">10–20% of chunk size</text>
+<text font-family="sans-serif" font-size="12" x="460" y="415" fill="#888780">(e.g. 50 token overlap</text>
+<text font-family="sans-serif" font-size="12" x="460" y="431" fill="#888780">for 256 token chunk)</text>
+</svg>
