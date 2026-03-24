@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Engineering Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:       #0d0f12;
+    --surface:  #141720;
+    --border:   #1f2430;
+    --border2:  #2a3040;
+    --text:     #e2e4ea;
+    --muted:    #6b7280;
+    --accent:   #4f8ef7;
+    --done-bg:  #0d2016;
+    --done-border: #1a4a2e;
+    --done-text:   #34d399;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+
+  .wrap { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+
+  /* Header */
+  header { margin-bottom: 3rem; }
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--accent);
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800; line-height: 1.1;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  h1 span { color: var(--accent); }
+  .subtitle { font-size: 15px; color: var(--muted); }
+
+  /* Overall bar */
+  .overall {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .overall-label { font-size: 13px; color: var(--muted); white-space: nowrap; }
+  .bar-track { flex: 1; height: 6px; background: var(--border2); border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; background: var(--accent); transition: width 0.5s ease; }
+  .overall-pct { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text); min-width: 40px; text-align: right; }
+
+  /* Sections */
+  .section { margin-bottom: 1rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
+  .section:hover { border-color: var(--border2); }
+  .section.open { border-color: var(--border2); }
+
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 1rem 1.25rem;
+    cursor: pointer; background: var(--surface);
+    user-select: none; transition: background 0.15s;
+  }
+  .section-header:hover { background: #181c24; }
+
+  .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    width: 26px; height: 26px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-name { font-size: 14px; font-weight: 600; flex: 1; }
+  .section-right { display: flex; align-items: center; gap: 10px; }
+  .prog-txt { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+  .mini-track { width: 64px; height: 3px; background: var(--border2); border-radius: 2px; overflow: hidden; }
+  .mini-fill { height: 100%; border-radius: 2px; transition: width 0.4s; }
+  .chevron { font-size: 10px; color: var(--muted); transition: transform 0.2s; }
+  .section.open .chevron { transform: rotate(180deg); }
+
+  /* Topics grid */
+  .topics { display: none; padding: 0.75rem 1.25rem 1rem; background: var(--bg); border-top: 1px solid var(--border); }
+  .section.open .topics { display: block; }
+  .topic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+  @media (max-width: 540px) { .topic-grid { grid-template-columns: 1fr; } }
+
+  .topic {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 8px 10px; border-radius: 8px;
+    border: 1px solid var(--border);
+    cursor: pointer; background: var(--surface);
+    transition: background 0.12s, border-color 0.12s;
+  }
+  .topic:hover { border-color: var(--border2); background: #181c24; }
+  .topic.done { background: var(--done-bg); border-color: var(--done-border); }
+
+  .chk {
+    width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; margin-top: 1px;
+    border: 1.5px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.12s;
+  }
+  .topic.done .chk { border-color: var(--done-text); background: #1a4a2e; }
+  .chk-svg { display: none; }
+  .topic.done .chk-svg { display: block; }
+
+  .tlabel { font-size: 12.5px; color: var(--muted); line-height: 1.4; transition: color 0.12s; }
+  .topic:hover .tlabel { color: var(--text); }
+  .topic.done .tlabel { color: var(--done-text); }
+
+  .ttag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; font-weight: 600;
+    padding: 1px 5px; border-radius: 3px;
+    white-space: nowrap; display: inline-block; margin-top: 3px;
+    letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .tag-core { background: #0d1f3a; color: #4f8ef7; }
+  .tag-intermediate { background: #2a1a00; color: #f59e0b; }
+  .tag-advanced { background: #250d1a; color: #f472b6; }
+
+  /* Reset button */
+  .reset-btn {
+    margin-top: 2.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 1px;
+    padding: 8px 18px; border-radius: 6px;
+    border: 1px solid var(--border2); background: transparent;
+    color: var(--muted); cursor: pointer; transition: all 0.15s;
+  }
+  .reset-btn:hover { border-color: #e74c3c; color: #e74c3c; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="tag">// learning path</div>
+    <h1>AI <span>Engineering</span><br>Roadmap</h1>
+    <p class="subtitle">Track your progress across every topic. Click any topic to mark it done.</p>
+  </header>
+
+  <div class="overall">
+    <span class="overall-label">Overall progress</span>
+    <div class="bar-track"><div class="bar-fill" id="overall-fill" style="width:0%"></div></div>
+    <span class="overall-pct" id="overall-pct">0%</span>
+  </div>
+
+  <div id="roadmap"></div>
+
+  <button class="reset-btn" onclick="resetAll()">↺ Reset all progress</button>
+</div>
+
+<script>
+const PHASES = [
+  {
+    id:'p1', num:'01', name:'Prompt Engineering',
+    color:'#4f8ef7', bg:'#0d1f3a', text:'#4f8ef7',
+    topics:[
+      {l:'Prompt basics & anatomy',           t:'Core'},
+      {l:'Zero-shot & few-shot prompting',    t:'Core'},
+      {l:'Chain-of-thought (CoT)',            t:'Core'},
+      {l:'Role & persona prompting',          t:'Core'},
+      {l:'System prompts & instructions',     t:'Core'},
+      {l:'Prompt chaining',                   t:'Intermediate'},
+      {l:'Output formatting (JSON, XML)',     t:'Intermediate'},
+      {l:'Temperature & sampling params',     t:'Intermediate'},
+      {l:'ReAct prompting',                   t:'Advanced'},
+      {l:'Prompt injection & safety',         t:'Advanced'},
+    ]
+  },
+  {
+    id:'p2', num:'02', name:'Context & Memory',
+    color:'#a78bfa', bg:'#1a0d3a', text:'#a78bfa',
+    topics:[
+      {l:'Context window fundamentals',       t:'Core'},
+      {l:'Tokens & token counting',           t:'Core'},
+      {l:'Conversation history management',   t:'Core'},
+      {l:'Short-term vs long-term memory',    t:'Intermediate'},
+      {l:'Summarisation for memory',          t:'Intermediate'},
+      {l:'Memory stores (in-memory, DB)',     t:'Intermediate'},
+      {l:'Context compression techniques',    t:'Advanced'},
+      {l:'Sliding window context',            t:'Advanced'},
+    ]
+  },
+  {
+    id:'p3', num:'03', name:'Embeddings & Vector DBs',
+    color:'#34d399', bg:'#0d2016', text:'#34d399',
+    topics:[
+      {l:'What are embeddings?',              t:'Core'},
+      {l:'Embedding models (OpenAI, HF)',     t:'Core'},
+      {l:'Semantic similarity & cosine dist', t:'Core'},
+      {l:'Vector DB concepts (HNSW, IVF)',    t:'Intermediate'},
+      {l:'Pinecone setup & usage',            t:'Intermediate'},
+      {l:'ChromaDB (local vector DB)',        t:'Intermediate'},
+      {l:'Weaviate & Qdrant overview',        t:'Intermediate'},
+      {l:'Chunking strategies',               t:'Advanced'},
+      {l:'Metadata filtering',                t:'Advanced'},
+    ]
+  },
+  {
+    id:'p4', num:'04', name:'RAG — Retrieval Augmented Gen.',
+    color:'#fb923c', bg:'#2a1200', text:'#fb923c',
+    topics:[
+      {l:'RAG architecture overview',         t:'Core'},
+      {l:'Document ingestion pipeline',       t:'Core'},
+      {l:'Retrieval strategies (top-k, MMR)', t:'Core'},
+      {l:'Naive RAG implementation',          t:'Core'},
+      {l:'Advanced RAG patterns',             t:'Intermediate'},
+      {l:'Hybrid search (dense + sparse)',    t:'Intermediate'},
+      {l:'Re-ranking with cross-encoders',    t:'Intermediate'},
+      {l:'Contextual compression',            t:'Advanced'},
+      {l:'Agentic RAG',                       t:'Advanced'},
+      {l:'RAG evaluation (RAGAS)',            t:'Advanced'},
+    ]
+  },
+  {
+    id:'p5', num:'05', name:'LangChain & LlamaIndex',
+    color:'#f472b6', bg:'#250d1a', text:'#f472b6',
+    topics:[
+      {l:'LangChain core concepts',           t:'Core'},
+      {l:'LLM chains & LCEL syntax',          t:'Core'},
+      {l:'Document loaders & splitters',      t:'Core'},
+      {l:'LangChain retrievers',              t:'Intermediate'},
+      {l:'LangChain memory modules',          t:'Intermediate'},
+      {l:'LlamaIndex data connectors',        t:'Intermediate'},
+      {l:'LlamaIndex query pipeline',         t:'Intermediate'},
+      {l:'Custom tools & integrations',       t:'Advanced'},
+      {l:'LangSmith for tracing & eval',      t:'Advanced'},
+    ]
+  },
+  {
+    id:'p6', num:'06', name:'Agents & Tool Use',
+    color:'#f87171', bg:'#250d0d', text:'#f87171',
+    topics:[
+      {l:'What are AI agents?',               t:'Core'},
+      {l:'Function / tool calling (APIs)',     t:'Core'},
+      {l:'ReAct agent loop',                  t:'Core'},
+      {l:'Planning & task decomposition',     t:'Intermediate'},
+      {l:'Code interpreter tool',             t:'Intermediate'},
+      {l:'Web search tool integration',       t:'Intermediate'},
+      {l:'Multi-agent systems',               t:'Advanced'},
+      {l:'LangGraph for agent flows',         t:'Advanced'},
+      {l:'AutoGen & CrewAI overview',         t:'Advanced'},
+      {l:'Agent evaluation & safety',         t:'Advanced'},
+    ]
+  },
+  {
+    id:'p7', num:'07', name:'Fine-tuning & Alignment',
+    color:'#fbbf24', bg:'#2a1a00', text:'#fbbf24',
+    topics:[
+      {l:'When to fine-tune vs RAG',          t:'Core'},
+      {l:'Supervised fine-tuning (SFT)',      t:'Core'},
+      {l:'Dataset preparation & formatting',  t:'Core'},
+      {l:'LoRA & QLoRA',                      t:'Intermediate'},
+      {l:'PEFT with Hugging Face',            t:'Intermediate'},
+      {l:'RLHF concepts',                     t:'Advanced'},
+      {l:'DPO (Direct Preference Optim.)',    t:'Advanced'},
+      {l:'Evaluating fine-tuned models',      t:'Advanced'},
+    ]
+  },
+  {
+    id:'p8', num:'08', name:'LLM APIs & Production',
+    color:'#94a3b8', bg:'#141720', text:'#94a3b8',
+    topics:[
+      {l:'OpenAI & Anthropic API basics',     t:'Core'},
+      {l:'Streaming responses',               t:'Core'},
+      {l:'Structured outputs / JSON mode',    t:'Core'},
+      {l:'Rate limits & error handling',      t:'Intermediate'},
+      {l:'Cost tracking & optimization',      t:'Intermediate'},
+      {l:'Caching (semantic + exact)',        t:'Intermediate'},
+      {l:'Load balancing multiple models',    t:'Advanced'},
+      {l:'Observability (LangSmith, Helicone)',t:'Advanced'},
+      {l:'Guardrails & content filtering',    t:'Advanced'},
+    ]
+  },
+];
+
+// Load state from localStorage
+let state = {};
+try { state = JSON.parse(localStorage.getItem('ai_roadmap_state') || '{}'); } catch(e) { state = {}; }
+
+function saveState() { localStorage.setItem('ai_roadmap_state', JSON.stringify(state)); }
+
+function totalTopics() { return Object.keys(state).length || PHASES.reduce((a,p) => a + p.topics.length, 0); }
+function doneCount()   { return Object.values(state).filter(Boolean).length; }
+
+function updateOverall() {
+  const total = PHASES.reduce((a,p) => a + p.topics.length, 0);
+  const done  = doneCount();
+  const pct   = Math.round(done / total * 100);
+  document.getElementById('overall-fill').style.width = pct + '%';
+  document.getElementById('overall-pct').textContent  = pct + '%';
+}
+
+function updatePhaseBar(phase) {
+  const keys = phase.topics.map((_,i) => `${phase.id}-${i}`);
+  const done = keys.filter(k => state[k]).length;
+  const pct  = Math.round(done / keys.length * 100);
+  const f    = document.getElementById('fill-' + phase.id);
+  const t    = document.getElementById('prog-' + phase.id);
+  if (f) f.style.width = pct + '%';
+  if (t) t.textContent = done + '/' + keys.length;
+}
+
+function togglePhase(id) {
+  document.getElementById('phase-' + id).classList.toggle('open');
+}
+
+function toggleTopic(key, phaseId) {
+  state[key] = !state[key];
+  const el   = document.getElementById('item-' + key);
+  el.classList.toggle('done', state[key]);
+  saveState();
+  const phase = PHASES.find(p => p.id === phaseId);
+  updatePhaseBar(phase);
+  updateOverall();
+}
+
+function resetAll() {
+  if (!confirm('Reset all progress?')) return;
+  Object.keys(state).forEach(k => state[k] = false);
+  saveState();
+  document.querySelectorAll('.topic.done').forEach(el => el.classList.remove('done'));
+  PHASES.forEach(p => updatePhaseBar(p));
+  updateOverall();
+}
+
+function tagClass(t) {
+  if (t === 'Core') return 'tag-core';
+  if (t === 'Intermediate') return 'tag-intermediate';
+  return 'tag-advanced';
+}
+
+function build() {
+  const container = document.getElementById('roadmap');
+
+  PHASES.forEach(phase => {
+    // Init state keys
+    phase.topics.forEach((_,i) => {
+      const key = `${phase.id}-${i}`;
+      if (!(key in state)) state[key] = false;
+    });
+
+    const done = phase.topics.filter((_,i) => state[`${phase.id}-${i}`]).length;
+    const pct  = Math.round(done / phase.topics.length * 100);
+
+    const el = document.createElement('div');
+    el.className = 'section';
+    el.id = 'phase-' + phase.id;
+
+    // Mark completed sections as open by default
+    if (phase.id === 'p1' || phase.id === 'p2') el.classList.add('open');
+
+    el.innerHTML = `
+      <div class="section-header" onclick="togglePhase('${phase.id}')">
+        <div class="num" style="background:${phase.bg};color:${phase.text}">${phase.num}</div>
+        <span class="section-name" style="color:${phase.text}">${phase.name}</span>
+        <div class="section-right">
+          <span class="prog-txt" id="prog-${phase.id}">${done}/${phase.topics.length}</span>
+          <div class="mini-track"><div class="mini-fill" id="fill-${phase.id}" style="width:${pct}%;background:${phase.color}"></div></div>
+          <span class="chevron">▼</span>
+        </div>
+      </div>
+      <div class="topics">
+        <div class="topic-grid" id="grid-${phase.id}"></div>
+      </div>
+    `;
+    container.appendChild(el);
+
+    const grid = el.querySelector('#grid-' + phase.id);
+    phase.topics.forEach((topic, i) => {
+      const key  = `${phase.id}-${i}`;
+      const div  = document.createElement('div');
+      div.className = 'topic' + (state[key] ? ' done' : '');
+      div.id = 'item-' + key;
+      div.innerHTML = `
+        <div class="chk">
+          <svg class="chk-svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
+            <path d="M1 3.5L3 5.5L8 1" stroke="${phase.text}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="tlabel">${topic.l}</div>
+          <span class="ttag ${tagClass(topic.t)}">${topic.t}</span>
+        </div>
+      `;
+      div.onclick = () => toggleTopic(key, phase.id);
+      grid.appendChild(div);
+    });
+  });
+
+  saveState();
+  PHASES.forEach(p => updatePhaseBar(p));
+  updateOverall();
+}
+
+build();
+</script>
+</body>
+</html>
