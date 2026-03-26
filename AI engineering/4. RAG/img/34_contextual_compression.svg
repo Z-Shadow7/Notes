@@ -1,0 +1,64 @@
+<svg width="100%" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+
+<text font-family="sans-serif" font-size="14" font-weight="500" x="340" y="24" text-anchor="middle" fill="#2C2C2A">Naive vs contextual compression</text>
+
+<rect x="240" y="40" width="200" height="36" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="340" y="62" text-anchor="middle" fill="#412402">Query: "refund timeline?"</text>
+
+<line x1="240" y1="76" x2="140" y2="108" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="76" x2="340" y2="108" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="440" y1="76" x2="540" y2="108" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+<text font-family="sans-serif" font-size="12" x="90" y="106" text-anchor="middle" fill="#888780">naive</text>
+<text font-family="sans-serif" font-size="12" x="340" y="106" text-anchor="middle" fill="#888780">extraction</text>
+<text font-family="sans-serif" font-size="12" x="590" y="106" text-anchor="middle" fill="#888780">compression</text>
+
+<rect x="20" y="114" width="200" height="96" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="120" y="132" text-anchor="middle" fill="#2C2C2A">Full chunk sent to LLM</text>
+<text font-family="sans-serif" font-size="11" x="120" y="152" text-anchor="middle" fill="#5F5E5A">"We founded in 2010.</text>
+<text font-family="sans-serif" font-size="11" x="120" y="167" text-anchor="middle" fill="#5F5E5A">Returns within 30 days.</text>
+<text font-family="sans-serif" font-size="11" x="120" y="182" text-anchor="middle" fill="#5F5E5A">Refunds take 5–7 days.</text>
+<text font-family="sans-serif" font-size="11" x="120" y="197" text-anchor="middle" fill="#5F5E5A">Contact support to start."</text>
+
+<rect x="240" y="114" width="200" height="96" rx="8" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="340" y="132" text-anchor="middle" fill="#085041">Only relevant sentence</text>
+<text font-family="sans-serif" font-size="11" x="340" y="156" text-anchor="middle" fill="#0F6E56">"Refunds take</text>
+<text font-family="sans-serif" font-size="11" x="340" y="172" text-anchor="middle" fill="#0F6E56">5–7 business days."</text>
+<text font-family="sans-serif" font-size="11" x="340" y="196" text-anchor="middle" fill="#1D9E75">extracted from chunk</text>
+
+<rect x="460" y="114" width="200" height="96" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="560" y="132" text-anchor="middle" fill="#26215C">Rewritten summary</text>
+<text font-family="sans-serif" font-size="11" x="560" y="156" text-anchor="middle" fill="#3C3489">"Refund processing</text>
+<text font-family="sans-serif" font-size="11" x="560" y="172" text-anchor="middle" fill="#3C3489">takes 5 to 7 days</text>
+<text font-family="sans-serif" font-size="11" x="560" y="188" text-anchor="middle" fill="#3C3489">after item received."</text>
+<text font-family="sans-serif" font-size="11" x="560" y="204" text-anchor="middle" fill="#534AB7">compressed rewrite</text>
+
+<line x1="120" y1="210" x2="120" y2="242" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="210" x2="340" y2="242" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="560" y1="210" x2="560" y2="242" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="20" y="244" width="200" height="44" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="120" y="262" text-anchor="middle" fill="#2C2C2A">LLM context used</text>
+<text font-family="sans-serif" font-size="12" x="120" y="278" text-anchor="middle" fill="#5F5E5A">~120 tokens / chunk</text>
+
+<rect x="240" y="244" width="200" height="44" rx="8" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="340" y="262" text-anchor="middle" fill="#085041">LLM context used</text>
+<text font-family="sans-serif" font-size="12" x="340" y="278" text-anchor="middle" fill="#0F6E56">~12 tokens / chunk</text>
+
+<rect x="460" y="244" width="200" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="560" y="262" text-anchor="middle" fill="#26215C">LLM context used</text>
+<text font-family="sans-serif" font-size="12" x="560" y="278" text-anchor="middle" fill="#3C3489">~20 tokens / chunk</text>
+
+<line x1="40" y1="320" x2="640" y2="320" stroke="#D3D1C7" stroke-width="0.5" stroke-dasharray="3 3"/>
+<text font-family="sans-serif" font-size="11" x="120" y="344" text-anchor="middle" fill="#888780">simple, always works</text>
+<text font-family="sans-serif" font-size="11" x="120" y="358" text-anchor="middle" fill="#888780">includes noise</text>
+<text font-family="sans-serif" font-size="11" x="340" y="344" text-anchor="middle" fill="#888780">precise, fast</text>
+<text font-family="sans-serif" font-size="11" x="340" y="358" text-anchor="middle" fill="#888780">may return nothing</text>
+<text font-family="sans-serif" font-size="11" x="560" y="344" text-anchor="middle" fill="#888780">always returns text</text>
+<text font-family="sans-serif" font-size="11" x="560" y="358" text-anchor="middle" fill="#888780">small hallucination risk</text>
+</svg>

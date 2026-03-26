@@ -1,0 +1,60 @@
+<svg width="100%" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+
+<rect x="40" y="30" width="120" height="44" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="100" y="48" text-anchor="middle" fill="#412402">Question</text>
+<text font-family="sans-serif" font-size="12" x="100" y="64" text-anchor="middle" fill="#633806">user query</text>
+
+<line x1="160" y1="52" x2="188" y2="52" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="190" y="30" width="140" height="44" rx="8" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="260" y="48" text-anchor="middle" fill="#085041">Retrieved context</text>
+<text font-family="sans-serif" font-size="12" x="260" y="64" text-anchor="middle" fill="#0F6E56">top-K chunks</text>
+
+<line x1="330" y1="52" x2="358" y2="52" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="360" y="30" width="120" height="44" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="420" y="48" text-anchor="middle" fill="#4A1B0C">LLM answer</text>
+<text font-family="sans-serif" font-size="12" x="420" y="64" text-anchor="middle" fill="#712B13">generated text</text>
+
+<line x1="480" y1="52" x2="508" y2="52" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="510" y="30" width="140" height="44" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="580" y="48" text-anchor="middle" fill="#2C2C2A">Ground truth</text>
+<text font-family="sans-serif" font-size="12" x="580" y="64" text-anchor="middle" fill="#5F5E5A">ideal answer</text>
+
+<line x1="40" y1="100" x2="640" y2="100" stroke="#D3D1C7" stroke-width="0.5" stroke-dasharray="3 3"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="40" y="120" fill="#2C2C2A">RAGAS metrics — what each measures</text>
+
+<rect x="40" y="132" width="290" height="64" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="185" y="152" text-anchor="middle" fill="#26215C">Faithfulness</text>
+<text font-family="sans-serif" font-size="12" x="185" y="170" text-anchor="middle" fill="#3C3489">answer ← context</text>
+<text font-family="sans-serif" font-size="11" x="185" y="186" text-anchor="middle" fill="#534AB7">is every claim in the answer supported by context?</text>
+
+<rect x="350" y="132" width="290" height="64" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="495" y="152" text-anchor="middle" fill="#412402">Answer relevancy</text>
+<text font-family="sans-serif" font-size="12" x="495" y="170" text-anchor="middle" fill="#633806">answer → question</text>
+<text font-family="sans-serif" font-size="11" x="495" y="186" text-anchor="middle" fill="#854F0B">does the answer actually address the question?</text>
+
+<rect x="40" y="212" width="290" height="64" rx="8" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="185" y="232" text-anchor="middle" fill="#085041">Context precision</text>
+<text font-family="sans-serif" font-size="12" x="185" y="250" text-anchor="middle" fill="#0F6E56">context → question</text>
+<text font-family="sans-serif" font-size="11" x="185" y="266" text-anchor="middle" fill="#1D9E75">are retrieved chunks relevant? (signal-to-noise)</text>
+
+<rect x="350" y="212" width="290" height="64" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="495" y="232" text-anchor="middle" fill="#4A1B0C">Context recall</text>
+<text font-family="sans-serif" font-size="12" x="495" y="250" text-anchor="middle" fill="#712B13">context ← ground truth</text>
+<text font-family="sans-serif" font-size="11" x="495" y="266" text-anchor="middle" fill="#993C1D">did retrieval find all needed information?</text>
+
+<line x1="40" y1="296" x2="640" y2="296" stroke="#D3D1C7" stroke-width="0.5" stroke-dasharray="3 3"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="40" y="316" fill="#2C2C2A">What low scores tell you</text>
+
+<text font-family="sans-serif" font-size="12" x="185" y="338" text-anchor="middle" fill="#5F5E5A">Low faithfulness → fix system prompt</text>
+<text font-family="sans-serif" font-size="12" x="185" y="356" text-anchor="middle" fill="#5F5E5A">Low context precision → fix chunk size / retrieval</text>
+<text font-family="sans-serif" font-size="12" x="495" y="338" text-anchor="middle" fill="#5F5E5A">Low answer relevancy → fix prompt instructions</text>
+<text font-family="sans-serif" font-size="12" x="495" y="356" text-anchor="middle" fill="#5F5E5A">Low context recall → more docs / better embedding</text>
+</svg>
