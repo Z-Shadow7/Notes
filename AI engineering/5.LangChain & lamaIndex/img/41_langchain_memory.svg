@@ -1,0 +1,63 @@
+<svg width="100%" viewBox="0 0 680 500" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+
+<text font-family="sans-serif" font-size="14" font-weight="500" x="340" y="24" text-anchor="middle" fill="#2C2C2A">Memory types — the context window tradeoff</text>
+<text font-family="sans-serif" font-size="12" x="340" y="46" text-anchor="middle" fill="#888780">Context window budget: fixed. What do you keep?</text>
+
+<rect x="40" y="60" width="580" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="175" y="78" text-anchor="middle" fill="#26215C">ConversationBufferMemory</text>
+<text font-family="sans-serif" font-size="11" x="430" y="78" text-anchor="middle" fill="#534AB7">keep everything — simple, hits context limit fast</text>
+<text font-family="sans-serif" font-size="11" x="590" y="84" text-anchor="middle" fill="#3C3489">tokens: all</text>
+
+<rect x="40" y="116" width="500" height="44" rx="8" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="185" y="134" text-anchor="middle" fill="#085041">ConversationBufferWindowMemory</text>
+<text font-family="sans-serif" font-size="11" x="400" y="134" text-anchor="middle" fill="#1D9E75">keep last K turns — predictable size</text>
+<text font-family="sans-serif" font-size="11" x="558" y="140" text-anchor="middle" fill="#0F6E56">tokens: K×avg</text>
+
+<rect x="40" y="172" width="420" height="44" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="155" y="190" text-anchor="middle" fill="#4A1B0C">ConversationSummaryMemory</text>
+<text font-family="sans-serif" font-size="11" x="340" y="190" text-anchor="middle" fill="#993C1D">LLM summarises history — stays compact</text>
+<text font-family="sans-serif" font-size="11" x="477" y="196" text-anchor="middle" fill="#712B13">tokens: ~200–400</text>
+
+<rect x="40" y="228" width="340" height="44" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="155" y="246" text-anchor="middle" fill="#412402">ConversationSummaryBufferMemory</text>
+<text font-family="sans-serif" font-size="11" x="290" y="258" text-anchor="middle" fill="#854F0B">recent verbatim + older summary</text>
+<text font-family="sans-serif" font-size="11" x="397" y="250" text-anchor="middle" fill="#633806">tokens: bounded ✓</text>
+
+<rect x="40" y="284" width="260" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="145" y="302" text-anchor="middle" fill="#042C53">ConversationEntityMemory</text>
+<text font-family="sans-serif" font-size="11" x="240" y="316" text-anchor="middle" fill="#185FA5">tracks named entities</text>
+<text font-family="sans-serif" font-size="11" x="317" y="302" text-anchor="middle" fill="#0C447C">tokens: very small</text>
+
+<line x1="40" y1="346" x2="640" y2="346" stroke="#D3D1C7" stroke-width="0.5" stroke-dasharray="3 3"/>
+<text font-family="sans-serif" font-size="14" font-weight="500" x="40" y="368" fill="#2C2C2A">How memory flows through a chain</text>
+
+<rect x="40" y="380" width="100" height="44" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="90" y="396" text-anchor="middle" fill="#412402">User input</text>
+<text font-family="sans-serif" font-size="11" x="90" y="412" text-anchor="middle" fill="#633806">turn N</text>
+
+<line x1="140" y1="402" x2="158" y2="402" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="160" y="380" width="130" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="225" y="396" text-anchor="middle" fill="#26215C">Memory loads</text>
+<text font-family="sans-serif" font-size="11" x="225" y="412" text-anchor="middle" fill="#3C3489">history injected</text>
+
+<line x1="290" y1="402" x2="308" y2="402" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="310" y="380" width="130" height="44" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="375" y="396" text-anchor="middle" fill="#4A1B0C">LLM call</text>
+<text font-family="sans-serif" font-size="11" x="375" y="412" text-anchor="middle" fill="#712B13">with context</text>
+
+<line x1="440" y1="402" x2="458" y2="402" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="460" y="380" width="160" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-family="sans-serif" font-size="13" font-weight="500" x="540" y="396" text-anchor="middle" fill="#26215C">Memory saves</text>
+<text font-family="sans-serif" font-size="11" x="540" y="412" text-anchor="middle" fill="#3C3489">response stored</text>
+
+<text font-family="sans-serif" font-size="11" x="340" y="450" text-anchor="middle" fill="#888780">memory.load_memory_variables() → inject into prompt</text>
+<text font-family="sans-serif" font-size="11" x="340" y="466" text-anchor="middle" fill="#888780">memory.save_context(input, output) → store after each turn</text>
+</svg>
