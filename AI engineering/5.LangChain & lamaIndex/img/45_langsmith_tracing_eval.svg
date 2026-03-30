@@ -1,0 +1,71 @@
+<svg width="100%" viewBox="0 0 680 440" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <style>
+    text { font-family: system-ui, sans-serif; }
+    .th  { font-size: 14px; font-weight: 500; }
+    .ts  { font-size: 12px; fill: #888780; }
+    .gray-title   { fill: #2C2C2A; } .gray-sub { fill: #5F5E5A; }
+    .purple-title { fill: #26215C; } .purple-sub { fill: #534AB7; }
+    .teal-title   { fill: #04342C; } .teal-sub { fill: #0F6E56; }
+    .amber-title  { fill: #412402; } .amber-sub { fill: #854F0B; }
+    .box-gray   { fill: #F1EFE8; stroke: #5F5E5A; }
+    .box-purple { fill: #EEEDFE; stroke: #534AB7; }
+    .box-teal   { fill: #E1F5EE; stroke: #0F6E56; }
+    .box-amber  { fill: #FAEEDA; stroke: #854F0B; }
+  </style>
+</defs>
+
+<!-- Top row -->
+<rect class="box-gray" x="40" y="40" width="130" height="44" rx="8" stroke-width="0.5"/>
+<text class="th gray-title" x="105" y="62" text-anchor="middle" dominant-baseline="central">User query</text>
+<line x1="170" y1="62" x2="198" y2="62" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect class="box-purple" x="200" y="40" width="160" height="44" rx="8" stroke-width="0.5"/>
+<text class="th purple-title" x="280" y="55" text-anchor="middle" dominant-baseline="central">LLM pipeline</text>
+<text class="ts purple-sub" x="280" y="73" text-anchor="middle" dominant-baseline="central">chains, agents, tools</text>
+<line x1="360" y1="62" x2="388" y2="62" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect class="box-gray" x="390" y="40" width="130" height="44" rx="8" stroke-width="0.5"/>
+<text class="th gray-title" x="455" y="62" text-anchor="middle" dominant-baseline="central">Response</text>
+
+<!-- LangSmith container -->
+<rect x="30" y="110" width="620" height="200" rx="12" fill="none" stroke="#888780" stroke-width="0.8" stroke-dasharray="6 3"/>
+<text class="th gray-title" x="340" y="132" text-anchor="middle">LangSmith</text>
+
+<!-- Span boxes -->
+<rect class="box-teal" x="55" y="148" width="155" height="52" rx="8" stroke-width="0.5"/>
+<text class="th teal-title" x="133" y="165" text-anchor="middle" dominant-baseline="central">Trace spans</text>
+<text class="ts teal-sub" x="133" y="183" text-anchor="middle" dominant-baseline="central">latency, tokens, cost</text>
+
+<rect class="box-teal" x="263" y="148" width="155" height="52" rx="8" stroke-width="0.5"/>
+<text class="th teal-title" x="341" y="165" text-anchor="middle" dominant-baseline="central">Datasets</text>
+<text class="ts teal-sub" x="341" y="183" text-anchor="middle" dominant-baseline="central">input / output pairs</text>
+
+<rect class="box-teal" x="471" y="148" width="155" height="52" rx="8" stroke-width="0.5"/>
+<text class="th teal-title" x="549" y="165" text-anchor="middle" dominant-baseline="central">Evaluators</text>
+<text class="ts teal-sub" x="549" y="183" text-anchor="middle" dominant-baseline="central">LLM-as-judge, custom</text>
+
+<line x1="210" y1="174" x2="261" y2="174" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="418" y1="174" x2="469" y2="174" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+<text class="ts" x="340" y="230" text-anchor="middle">Scores → compare experiments → iterate</text>
+
+<!-- Trace feed-in arrows -->
+<path d="M280 84 L280 106 L133 106 L133 146" fill="none" stroke="#888780" stroke-width="0.8" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+<path d="M280 84 L280 106 L341 106 L341 146" fill="none" stroke="#888780" stroke-width="0.8" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+<path d="M280 84 L280 106 L549 106 L549 146" fill="none" stroke="#888780" stroke-width="0.8" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+<!-- Compare experiments box -->
+<rect class="box-amber" x="200" y="340" width="280" height="52" rx="8" stroke-width="0.5"/>
+<text class="th amber-title" x="340" y="358" text-anchor="middle" dominant-baseline="central">Compare experiments</text>
+<text class="ts amber-sub" x="340" y="376" text-anchor="middle" dominant-baseline="central">baseline vs improved run</text>
+
+<!-- Evaluator → compare -->
+<path d="M549 200 L549 320 L480 320 L480 338" fill="none" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- Feedback loop -->
+<path d="M200 366 L100 366 L100 62 L38 62" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#arrow)"/>
+<text class="ts" x="86" y="354" text-anchor="middle">iterate</text>
+</svg>

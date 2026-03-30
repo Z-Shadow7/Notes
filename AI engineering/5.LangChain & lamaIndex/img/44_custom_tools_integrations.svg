@@ -1,0 +1,52 @@
+<svg width="100%" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <style>
+    text { font-family: system-ui, sans-serif; }
+    .th  { font-size: 14px; font-weight: 500; fill: #26215C; }
+    .ts  { font-size: 12px; fill: #888780; }
+    .purple-sub { fill: #534AB7; }
+    .teal-title { fill: #085041; }
+    .teal-sub   { fill: #0F6E56; }
+    .box-purple { fill: #EEEDFE; stroke: #534AB7; }
+    .box-teal   { fill: #E1F5EE; stroke: #0F6E56; }
+  </style>
+</defs>
+
+<!-- Centre: LLM agent -->
+<rect class="box-purple" x="255" y="160" width="170" height="56" rx="8" stroke-width="0.5"/>
+<text class="th" x="340" y="180" text-anchor="middle" dominant-baseline="central">LLM agent</text>
+<text class="ts purple-sub" x="340" y="198" text-anchor="middle" dominant-baseline="central">Reads tool descriptions</text>
+
+<!-- Top: REST API tool -->
+<rect class="box-teal" x="255" y="40" width="170" height="56" rx="8" stroke-width="0.5"/>
+<text class="teal-title th" x="340" y="60" text-anchor="middle" dominant-baseline="central">REST API tool</text>
+<text class="ts teal-sub" x="340" y="78" text-anchor="middle" dominant-baseline="central">Weather, web search</text>
+<line x1="340" y1="96" x2="340" y2="158" stroke="#888780" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+
+<!-- Left: Database tool -->
+<rect class="box-teal" x="50" y="160" width="170" height="56" rx="8" stroke-width="0.5"/>
+<text class="teal-title th" x="135" y="180" text-anchor="middle" dominant-baseline="central">Database tool</text>
+<text class="ts teal-sub" x="135" y="198" text-anchor="middle" dominant-baseline="central">SQL, NoSQL queries</text>
+<line x1="220" y1="188" x2="253" y2="188" stroke="#888780" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+
+<!-- Right: RAG tool -->
+<rect class="box-teal" x="460" y="160" width="170" height="56" rx="8" stroke-width="0.5"/>
+<text class="teal-title th" x="545" y="180" text-anchor="middle" dominant-baseline="central">RAG tool</text>
+<text class="ts teal-sub" x="545" y="198" text-anchor="middle" dominant-baseline="central">QueryEngineTool</text>
+<line x1="425" y1="188" x2="458" y2="188" stroke="#888780" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+
+<!-- Bottom: Function tool -->
+<rect class="box-teal" x="255" y="300" width="170" height="56" rx="8" stroke-width="0.5"/>
+<text class="teal-title th" x="340" y="320" text-anchor="middle" dominant-baseline="central">Function tool</text>
+<text class="ts teal-sub" x="340" y="338" text-anchor="middle" dominant-baseline="central">Any Python callable</text>
+<line x1="340" y1="216" x2="340" y2="298" stroke="#888780" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+
+<!-- World labels -->
+<text class="ts" x="340" y="15" text-anchor="middle">External APIs</text>
+<text class="ts" x="50" y="150" text-anchor="start">Postgres / SQLite</text>
+<text class="ts" x="460" y="150" text-anchor="start">Vector index / docs</text>
+<text class="ts" x="340" y="390" text-anchor="middle">calc, email, file system...</text>
+</svg>
